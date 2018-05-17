@@ -5,7 +5,7 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 
 import Thermometer from "./Thermometer.js";
-import MapLoc from "./MapLoc.js";
+import DataDays from "./DataDays.js";
 import Comentario from "./Comentario.js";
 import AccountsUIWrapper from './AccountsUIWrapper.js';
 import { Comentarios } from "../api/comentarios.js";
@@ -20,6 +20,7 @@ export class App extends Component {
     min: null,
     max: null,
     current: null,
+    dataDays: null,
     latt: null,
     long: null
   };
@@ -44,16 +45,15 @@ componentDidMount(){
   }
 
 callAPI() {
-
   fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=Lima")
   .then((res) => {
     return res.json();
   })
   .then((data) => {
-    console.log("DIERON NOMBRE CIUDAD");
+    //console.log("DIERON NOMBRE CIUDAD");
     this.setState({data: data });
     this.obtainCityData();
-    console.log(this.state.data);
+    //console.log(this.state.data);
   })
   .catch((err) => {console.log(err.message)});
 }
@@ -65,21 +65,23 @@ obtainCityData() {
       return res.json();
     })
     .then((data) => {
-      console.log("DATOS CIUDAD CON WOEID");
+      //console.log("DATOS CIUDAD CON WOEID");
       console.log(data);
       this.setState({min: data.consolidated_weather[0].min_temp});
       this.setState({max: data.consolidated_weather[0].max_temp});
       this.setState({current: data.consolidated_weather[0].the_temp });
+      this.setState({dataDays: data.consolidated_weather})
+      console.log(this.state.dataDays);
 
       var lattlong = data.latt_long.split(",");
       this.setState({latt: lattlong[0]});
       this.setState({long: lattlong[1]});
 
-      console.log(lattlong);
-      console.log("LATT: "+ this.state.latt);
-      console.log("TEMP MIN: "+ this.state.min);
-      console.log("TEMP MAX: "+ this.state.max);
-      console.log("CURRENT TEMP: "+ this.state.current);
+      //console.log(lattlong);
+      //console.log("LATT: "+ this.state.latt);
+      //console.log("TEMP MIN: "+ this.state.min);
+      //console.log("TEMP MAX: "+ this.state.max);
+      //console.log("CURRENT TEMP: "+ this.state.current);
     })
     .catch((err) => {console.log(err.message)});
   }
@@ -126,7 +128,7 @@ mostrarComentarios(){
             <Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>
           </div>
           <div className="col-sm-6">        
-            <MapLoc latt={this.state.latt} long={this.state.long}/>
+            <DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>
           </div>
         </div>
       </div>
