@@ -6,6 +6,7 @@ import { withTracker } from "meteor/react-meteor-data";
 
 import Thermometer from "./Thermometer.js";
 import DataDays from "./DataDays.js";
+import Form from "./Form.js";
 import Comentario from "./Comentario.js";
 import AccountsUIWrapper from './AccountsUIWrapper.js';
 import { Comentarios } from "../api/comentarios.js";
@@ -15,6 +16,7 @@ export class App extends Component {
  constructor(props) {
   super(props);
   this.state={
+    place: null,
     data: null,
     cityData: null,
     min: null,
@@ -22,13 +24,22 @@ export class App extends Component {
     current: null,
     dataDays: null,
     latt: null,
-    long: null
-  };
-}
+    long: null};
+  }
 
-componentDidMount(){
-  this.callAPI();
-}
+  place(place){
+    this.setState({place: place});
+
+  }
+
+  componentDidUpdate(){
+    if (this.state.place !== null){
+      this.callAPI();      
+      this.setState({place: null});
+    }    
+  }
+
+
 
  handleSubmit(event) {
     event.preventDefault();
@@ -45,8 +56,9 @@ componentDidMount(){
   }
 
 callAPI() {
-  fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=Lima")
+  fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query="+ this.state.place)
   .then((res) => {
+    console.log();
     return res.json();
   })
   .then((data) => {
@@ -96,22 +108,14 @@ mostrarComentarios(){
     ));
 }
 
-/*getDataMultipleTimes() {
-  this.callAPI();
-  setInterval(() => {
-    fetch("http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=sf-muni&t=0")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      this.setState({data: data.vehicle });
-    })
-    .catch((err) => {console.log(err.message)});
-
-  } ,15000);
-}*/
-
   render() {
+    let thermometer = null;
+    let dataDays = null;
+
+    if (this.state.data !== null){
+      thermometer = (<Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>);
+      dataDays = (<DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>);
+    }
     return (
       <div className="container">        
         <div className="titulo row">
@@ -122,13 +126,16 @@ mostrarComentarios(){
           <AccountsUIWrapper />
           </div>
         </div>
+        <div className="titulo row">
+          <Form place={this.place.bind(this)}></Form>
+        </div>
 
         <div className="titulo row">
           <div className="col-sm-6">
-            <Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>
+            {thermometer}
           </div>
           <div className="col-sm-6">        
-            <DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>
+            {dataDays}
           </div>
         </div>
       </div>

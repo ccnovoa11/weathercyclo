@@ -11,12 +11,12 @@ class Thermometer extends Component {
 
 	componentDidUpdate(){		
 		
-		if (this.props.min !== null && this.props.max !== null && this.props.current !== null) {
+		/*if (this.props.min !== null && this.props.max !== null && this.props.current !== null) {
 			console.log(this.props.min);
 			console.log(this.props.max);
 			console.log(this.props.current);
 			console.log("VAMO A DARLE");
-		}
+		}*/
 
 		this.graph(this.props.min,this.props.max,this.props.current)
 	}

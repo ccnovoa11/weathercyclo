@@ -5,18 +5,13 @@ class DataDays extends Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		GoogleMaps.load(this.props.options || {});
-		this.forceUpdate();
-	}
-
 	componentDidUpdate(){
-		if (this.props.lat !== null && this.props.lon !== null && this.props.dataDays !== null){
+		/*if (this.props.lat !== null && this.props.lon !== null && this.props.dataDays !== null){
 			console.log("VAMOAVER");
 			console.log(this.props.lat);
 			console.log(this.props.lon);
 			console.log(this.props.dataDays[1]);
-		}				
+		}*/			
 	}
 
 	information1(){
