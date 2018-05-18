@@ -34,8 +34,8 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[1].max_temp} </p>
-						<p> {this.props.dataDays[1].min_temp} </p>
+						<p> {this.props.dataDays[1].max_temp.toFixed(2)} </p>
+						<p> {this.props.dataDays[1].min_temp.toFixed(2)} </p>
 					</div>
 					<div className="col-sm-6">
 						<h5> {this.props.dataDays[2].applicable_date} </h5>						
@@ -50,8 +50,8 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[2].max_temp} </p>
-						<p> {this.props.dataDays[2].min_temp} </p>
+						<p> {this.props.dataDays[2].max_temp.toFixed(2)} </p>
+						<p> {this.props.dataDays[2].min_temp.toFixed(2)} </p>
 					</div>
 				</div>
 				)
@@ -78,8 +78,8 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[3].max_temp} </p>
-						<p> {this.props.dataDays[3].min_temp} </p>
+						<p> {this.props.dataDays[3].max_temp.toFixed(2)} </p>
+						<p> {this.props.dataDays[3].min_temp.toFixed(2)} </p>
 					</div>
 					<div className="col-sm-6">
 						<h5> {this.props.dataDays[4].applicable_date} </h5>						
@@ -94,8 +94,8 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[4].max_temp} </p>
-						<p> {this.props.dataDays[4].min_temp} </p>
+						<p> {this.props.dataDays[4].max_temp.toFixed(2)} </p>
+						<p> {this.props.dataDays[4].min_temp.toFixed(2)} </p>
 					</div>
 				</div>
 				)
