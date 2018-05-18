@@ -1,7 +1,7 @@
 html>body {
 	height: 100%;
 	width: 100%;
-	background-color: rgb(245,245,245);
+	background-image: url("https://raw.githubusercontent.com/ccnovoa11/weathercyclo/master/client/img/Background.jpg") !important;
 	margin: 0;
 	background-repeat: no-repeat;
 	background-size: cover;
