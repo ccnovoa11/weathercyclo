@@ -1,48 +1,112 @@
-html>body {
-	height: 100%;
-	width: 100%;
-	background-image: url("https://raw.githubusercontent.com/ccnovoa11/weathercyclo/master/client/img/Background.jpg") !important;
-	margin: 0;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
+div.podium{
+    margin: auto;
+    width: 80% !important;
+}
+
+
+div.first{
+    background-color: yellow;
+    color: yellow;
+    padding-bottom: 80px !important;
+}
+
+div.second{
+    background-color: red;
+    color: red;
+    padding-bottom: 40px !important;
+}
+
+div.third{
+    background-color: blue;
+    color: blue;
+    padding-bottom: 20px !important;
+}
+div.pad{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+div.second_content{
+    margin-top: 40px;
+}
+
+div.third_content{
+    margin-top: 60px;
+}
+
+div.row{
+    margin-bottom: 5px !important;
+}
+
+
+
+input#fotoNueva{
+    color:white;
+}
+
+button {
+    background-color: #265a88 !important;
+}
+
+.contricante{
+    text-align: center;
+}
+
+[type="radio"]:disabled:checked+span:after{
+    background-color: #26a69a !important;
+    border: 2px solid #26a69a !important;
+}
+
+[type="checkbox"]:checked:disabled+span:before{
+    border-right: 2px solid #26a69a !important;
+    border-bottom: 2px solid #26a69a !important;
+}
+
+h6{
+    color: black !important;
+}
+
+.noneBg{
+    color: #db2828!important;
+    background-color: transparent !important;
+}
+
+.under:hover{
+    text-decoration: underline;
+    cursor:pointer!important;
+}
+
+.nav-wrapper{
+    background-color: #4267b2; 
 }
 
 .time{
-	text-align: center;
+    text-align: center;
 }
 
 .form{
-	width: 300px;
+    width: 35% !important;
 }
 
-#thermo {
-  max-height: 600px;
 
-  margin: 0 auto; /* poor attempt at centering */
+html>body {
+    min-height: 100vh;
 
-  height: auto !important; /* overrides inline */
-  width: auto !important; /* overrides inline */
-
-  max-width: 335px;
-  display: block;
+    width: 100%;
+    background-image: url("https://raw.githubusercontent.com/ccnovoa11/weathercyclo/master/client/img/Background.jpg") !important;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-h1{
-	font-family: 'Titan One', cursive !important;
-	font-size: 4vh;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-h4{
-	font-family: 'Titan One', cursive !important;
-	font-size: 2.3vh;
-	text-align: center;
-}
-
-p {
-	font-size: 2.1vh;
-	font-family: 'Nunito', sans-serif;
-	border-style: inset;
-	border-color: grey;
+main {
+    flex: 1 0 auto;
 }

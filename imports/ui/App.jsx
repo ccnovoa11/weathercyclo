@@ -1,21 +1,18 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import ReactDOM from 'react-dom';
-import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
+import ReactDOM from 'react-dom';
+import Navbar from "./components/Navbar";
+import { Meteor } from "meteor/meteor";
+import Login from "./components/Login";
+import { Accounts } from 'meteor/accounts-base';
+import Thermometer from "./components/Thermometer.js";
+import DataDays from "./components/DataDays.js";
+import Form from "./components/Form.js";
 
-import Thermometer from "./Thermometer.js";
-import DataDays from "./DataDays.js";
-import Form from "./Form.js";
-import Comentario from "./Comentario.js";
-import AccountsUIWrapper from './AccountsUIWrapper.js';
-import { Comentarios } from "../api/comentarios.js";
-
-export class App extends Component {
-
- constructor(props) {
-  super(props);
-  this.state={
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
     place: null,
     data: null,
     cityData: null,
@@ -97,60 +94,38 @@ obtainCityData() {
   }
 }
 
-
-
-
-mostrarComentarios(){
-  return this.props.comentarios.map((comentario) =>(
-    <Comentario key={comentario._id} comentario={comentario}/>
-    ));
-}
-
   render() {
     return (
-      <div className="container">        
-        <div className="titulo row">
-          <div className="col-sm-10">
-            <h1>Navbar</h1>
+      <div>
+        <Navbar />
+        <div className="container">
+          <h1>Welcome to weathercyclo</h1>
+          <h3>Here in weathercyclo you can search for information about the weather of different places.</h3>
+          <div className = "time">
+            <Form place={this.place.bind(this)}></Form>
           </div>
-          <div className="col-sm-2">
-            <AccountsUIWrapper />
-          </div>
-        </div>
-        <div className="time row">
-          <h2>Welcome to weathercyclo</h2>
-          <p>Here in weathercyclo you can search for information about the weather of different places.</p>
-          <Form place={this.place.bind(this)}></Form>
         </div>
 
         <div className="titulo row">
-          <div className="col-sm-6">
+          <div className="col s6">
             <Thermometer abbr={this.state.abbr}
                          img={this.state.img} 
                          min={this.state.min} 
                          max={this.state.max} 
                          current={this.state.current}/>
           </div>
-          <div className="col-sm-6">        
+          <div className="col s6">        
             <DataDays dataDays = {this.state.dataDays} 
                       lat={this.state.latt} 
                       lon={this.state.long}/>
           </div>
         </div>
       </div>
-      );
+    );
   }
 }
 
-App.propTypes = {
-  comentarios: PropTypes.array.isRequired
-};
-
-export default withTracker(
-  () => {
-    Meteor.subscribe("comentarios");
-    return {
-      comentarios: Comentarios.find({}, { sort: { createdAt: -1 } }).fetch()
-    };
-  }
-  )(App);
+export default withTracker(() => {
+  return {
+  };
+})(App);

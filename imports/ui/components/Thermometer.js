@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as d3 from "d3"; 
-import *  as d3Chromatic from "d3-scale-chromatic"; 
+import *  as d3Chromatic from "d3-scale-chromatic";
+import { Meteor } from "meteor/meteor";
 
 
 class Thermometer extends Component {
@@ -254,13 +255,13 @@ renderTitle(){
 				<h2>Current Temperature</h2>
 				<div className="row">
 
-					<div className="col-sm-10">
+					<div className="col s10">
 						<div className="row">
-							<div className="col-sm-6">
+							<div className="col s6">
 								<img className="time" 
 									 src= {imagen}/>
 							</div>
-							<div className="col-sm-6">
+							<div className="col s6">
 								<br/>	
 								<p> {this.props.img} </p>
 							</div>
@@ -271,9 +272,7 @@ renderTitle(){
 					</div>
 				</div>
 			</div>
-
-
-			)
+			);
 	}
 }
 	
@@ -282,7 +281,7 @@ renderTitle(){
 			<div className= "time">
 				{this.renderTitle()}				
 				<svg width="400" 
-					 height="600"  
+					 height="550"  
 					 id="thermo" 
 					 ref = {(svg) => this.svg = svg}/>
 			</div>

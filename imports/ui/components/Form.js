@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Meteor } from "meteor/meteor";
 
 class Form extends Component {
 	constructor(props) {
@@ -28,7 +29,11 @@ class Form extends Component {
 						placeholder = "Search a place"
                 		onChange={(evt)=>this.getPlace(evt)}
                 		required/>
-                	<button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>GO</button>
+                	<br/>
+                	<button className="btn btn-primary waves-effect waves-light"
+              				type="submit"
+                			id="boton" 
+                			onClick={()=>this.handleSubmit()}>GO</button>
              	</div>
             </div>	
 			); 
