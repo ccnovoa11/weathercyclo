@@ -109,13 +109,13 @@ mostrarComentarios(){
 }
 
   render() {
-    let thermometer = null;
+    /*let thermometer = null;
     let dataDays = null;
 
-    if (this.state.data !== null){
+    if (this.state.data !== null && this.state.place !== null){
       thermometer = (<Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>);
       dataDays = (<DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>);
-    }
+    }*/
     return (
       <div className="container">        
         <div className="titulo row">
@@ -132,10 +132,10 @@ mostrarComentarios(){
 
         <div className="titulo row">
           <div className="col-sm-6">
-            {thermometer}
+            <Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>
           </div>
           <div className="col-sm-6">        
-            {dataDays}
+            <DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>
           </div>
         </div>
       </div>

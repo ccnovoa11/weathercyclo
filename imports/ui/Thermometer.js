@@ -6,27 +6,46 @@ import *  as d3Chromatic from "d3-scale-chromatic";
 
 class Thermometer extends Component {
 	constructor(props) {
-		super(props);		
+		super(props);
+		this.state={
+			stop: 0
+		}		
 	}
 
 	componentDidUpdate(){		
 		
-		/*if (this.props.min !== null && this.props.max !== null && this.props.current !== null) {
+		if (this.props.min !== null && this.props.max !== null && this.props.current !== null && this.state.stop !== 1) {
+			
 			console.log(this.props.min);
 			console.log(this.props.max);
 			console.log(this.props.current);
 			console.log("VAMO A DARLE");
-		}*/
+			this.setState({stop:1});
+			this.graph(this.props.min,this.props.max,this.props.current);
+		}
 
-		this.graph(this.props.min,this.props.max,this.props.current)
+	}
+
+	componentWillUpdate(newProps){
+
+		if(this.props !== newProps){
+			d3.select("#lastGraph").remove();
+			if (newProps.min !== null && newProps.max !== null && newProps.current !== null){
+				this.graph(newProps.min,newProps.max,newProps.current);
+
+			}
+			
+		}		
+
 	}
 
 	graph(min, max, current) {
+
 		var width = 150,
     height = 500,
-    maxTemp = 17.59,
-    minTemp = 10.605,
-    currentTemp = 17.1;
+    maxTemp = max,
+    minTemp = min,
+    currentTemp = current;
 
 var bottomY = height - 5,
     topY = 5,
@@ -44,6 +63,7 @@ var bulb_cy = bottomY - bulbRadius,
 
 this.svg = d3.select(this.svg)
   .append("svg")
+  .attr("id","lastGraph")
   .attr("width", width)
   .attr("height", height);
 
