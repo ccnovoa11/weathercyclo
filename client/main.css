@@ -9,10 +9,24 @@ html>body {
 	background-attachment: fixed;
 }
 
-.map {
-  width: 800px;
-  max-width: 100%;
-  height: 500px;
+.time{
+	text-align: center;
+}
+
+.form{
+	width: 300px;
+}
+
+#thermo {
+  max-height: 600px;
+
+  margin: 0 auto; /* poor attempt at centering */
+
+  height: auto !important; /* overrides inline */
+  width: auto !important; /* overrides inline */
+
+  max-width: 335px;
+  display: block;
 }
 
 h1{
@@ -31,10 +45,4 @@ p {
 	font-family: 'Nunito', sans-serif;
 	border-style: inset;
 	border-color: grey;
-}
-
-p.zonaComentario {
-	font-size: 3vh;
-	font-family: 'Nunito', sans-serif;
-	border-style: none;
 }

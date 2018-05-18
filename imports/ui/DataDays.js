@@ -21,11 +21,12 @@ class DataDays extends Component {
 
 			return (
 				<div className="row">
-					<div className="col-sm-6">
-						<h5> {this.props.dataDays[1].applicable_date} </h5>						
+					<div className="time col-sm-6">
+						<h4> {this.props.dataDays[1].applicable_date} </h4>						
 						<div className="row">
 							<div className="col-sm-6">
-								<img src= {imagen}/>
+								<img className="time" 
+									 src= {imagen}/>
 							</div>
 							<div className="col-sm-6">
 								<br/>	
@@ -34,14 +35,15 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[1].max_temp.toFixed(2)} </p>
-						<p> {this.props.dataDays[1].min_temp.toFixed(2)} </p>
+						<p> Max: {this.props.dataDays[1].max_temp.toFixed(2)} °C</p>
+						<p> Min: {this.props.dataDays[1].min_temp.toFixed(2)} °C</p>
 					</div>
-					<div className="col-sm-6">
-						<h5> {this.props.dataDays[2].applicable_date} </h5>						
+					<div className="time col-sm-6">
+						<h4> {this.props.dataDays[2].applicable_date} </h4>						
 						<div className="row">
 							<div className="col-sm-6">
-								<img src= {imagen2}/>
+								<img className="time" 
+									 src= {imagen2}/>
 							</div>
 							<div className="col-sm-6">
 								<br/>	
@@ -50,8 +52,8 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[2].max_temp.toFixed(2)} </p>
-						<p> {this.props.dataDays[2].min_temp.toFixed(2)} </p>
+						<p> Max: {this.props.dataDays[2].max_temp.toFixed(2)} °C</p>
+						<p> Min: {this.props.dataDays[2].min_temp.toFixed(2)} °C</p>
 					</div>
 				</div>
 				)
@@ -65,11 +67,12 @@ class DataDays extends Component {
 
 			return (
 				<div className="row">
-					<div className="col-sm-6">
-						<h5> {this.props.dataDays[3].applicable_date} </h5>
+					<div className="time col-sm-6">
+						<h4> {this.props.dataDays[3].applicable_date} </h4>
 						<div className="row">
 							<div className="col-sm-6">
-								<img src= {imagen}/>
+								<img className="time" 
+									 src= {imagen}/>
 							</div>
 							<div className="col-sm-6">
 								<br/>	
@@ -78,14 +81,15 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[3].max_temp.toFixed(2)} </p>
-						<p> {this.props.dataDays[3].min_temp.toFixed(2)} </p>
+						<p> Max: {this.props.dataDays[3].max_temp.toFixed(2)} °C</p>
+						<p> Min: {this.props.dataDays[3].min_temp.toFixed(2)} °C</p>
 					</div>
-					<div className="col-sm-6">
-						<h5> {this.props.dataDays[4].applicable_date} </h5>						
+					<div className="time col-sm-6">
+						<h4> {this.props.dataDays[4].applicable_date} </h4>						
 						<div className="row">
 							<div className="col-sm-6">
-								<img src= {imagen2}/>
+								<img className="time" 
+									 src= {imagen2}/>
 							</div>
 							<div className="col-sm-6">
 								<br/>	
@@ -94,21 +98,32 @@ class DataDays extends Component {
 						</div>
 						<br/>
 						<br/>
-						<p> {this.props.dataDays[4].max_temp.toFixed(2)} </p>
-						<p> {this.props.dataDays[4].min_temp.toFixed(2)} </p>
+						<p> Max: {this.props.dataDays[4].max_temp.toFixed(2)} °C</p>
+						<p> Min: {this.props.dataDays[4].min_temp.toFixed(2)} °C</p>
 					</div>
 				</div>
 				)
 		}
 	}
 
+	latlong(){
+		if(this.props.lat !== null && this.props.lon !==null){
+			return(
+				<div className="time">
+					<h2>Location:</h2>
+					<p>Latitude: {this.props.lat}</p>
+					<p>Longitude: {this.props.lon}</p>
+				</div>
+
+				)
+		}
+
+	}
+
 	render() {
 		return (			
 			<div>
-				<h2>Ubicación:</h2>
-				<div id="map"></div>
-				<p>Latitud: {this.props.lat}</p>
-				<p>Longitud: {this.props.lon}</p>
+				{this.latlong()}
 				{this.information1()}
 				{this.information2()}
 			</div>		

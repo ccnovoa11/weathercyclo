@@ -24,7 +24,8 @@ class Form extends Component {
 		return (			
 			<div className = "formulario">
 				<div>
-					<input placeholder = "Search a place"
+					<input className="form" 
+						placeholder = "Search a place"
                 		onChange={(evt)=>this.getPlace(evt)}
                 		required/>
                 	<button className="btn btn-primary" id="boton" onClick={()=>this.handleSubmit()}>GO</button>

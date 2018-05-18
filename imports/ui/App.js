@@ -21,6 +21,8 @@ export class App extends Component {
     cityData: null,
     min: null,
     max: null,
+    abbr: null,
+    img: null,
     current: null,
     dataDays: null,
     latt: null,
@@ -58,14 +60,11 @@ export class App extends Component {
 callAPI() {
   fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query="+ this.state.place)
   .then((res) => {
-    console.log();
     return res.json();
   })
   .then((data) => {
-    //console.log("DIERON NOMBRE CIUDAD");
     this.setState({data: data });
     this.obtainCityData();
-    //console.log(this.state.data);
   })
   .catch((err) => {console.log(err.message)});
 }
@@ -77,13 +76,12 @@ obtainCityData() {
       return res.json();
     })
     .then((data) => {
-      //console.log("DATOS CIUDAD CON WOEID");
-      console.log(data);
       this.setState({min: data.consolidated_weather[0].min_temp});
       this.setState({max: data.consolidated_weather[0].max_temp});
       this.setState({current: data.consolidated_weather[0].the_temp });
-      this.setState({dataDays: data.consolidated_weather})
-      console.log(this.state.dataDays);
+      this.setState({abbr: data.consolidated_weather[0].weather_state_abbr});
+      this.setState({img: data.consolidated_weather[0].weather_state_name});
+      this.setState({dataDays: data.consolidated_weather});
 
       var lattlong = data.latt_long.split(",");
       this.setState({latt: lattlong[0]});
@@ -109,33 +107,34 @@ mostrarComentarios(){
 }
 
   render() {
-    /*let thermometer = null;
-    let dataDays = null;
-
-    if (this.state.data !== null && this.state.place !== null){
-      thermometer = (<Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>);
-      dataDays = (<DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>);
-    }*/
     return (
       <div className="container">        
         <div className="titulo row">
           <div className="col-sm-10">
-            <h1>Welcome to weatherCyclo</h1>
+            <h1>Navbar</h1>
           </div>
           <div className="col-sm-2">
-          <AccountsUIWrapper />
+            <AccountsUIWrapper />
           </div>
         </div>
-        <div className="titulo row">
+        <div className="time row">
+          <h2>Welcome to weathercyclo</h2>
+          <p>Here in weathercyclo you can search for information about the weather of different places.</p>
           <Form place={this.place.bind(this)}></Form>
         </div>
 
         <div className="titulo row">
           <div className="col-sm-6">
-            <Thermometer min={this.state.min} max={this.state.max} current={this.state.current}/>
+            <Thermometer abbr={this.state.abbr}
+                         img={this.state.img} 
+                         min={this.state.min} 
+                         max={this.state.max} 
+                         current={this.state.current}/>
           </div>
           <div className="col-sm-6">        
-            <DataDays dataDays = {this.state.dataDays} lat={this.state.latt} lon={this.state.long}/>
+            <DataDays dataDays = {this.state.dataDays} 
+                      lat={this.state.latt} 
+                      lon={this.state.long}/>
           </div>
         </div>
       </div>
