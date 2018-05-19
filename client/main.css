@@ -49,6 +49,8 @@ h4 {
 
 div.curiosidad {
     height: 40%;
+    border: 2px solid gray;
+    border-radius: 5px;
 }
 
 
