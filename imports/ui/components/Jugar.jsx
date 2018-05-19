@@ -29,7 +29,7 @@ class Jugar extends Component {
           </div>
 
           <div className="time">
-            <h3>Te sientes preparado, entonces...</h3>
+            <h3>¿Te sientes preparado?, entonces...</h3>
             <button
               className="btn waves-effect waves-light"
               type="submit"

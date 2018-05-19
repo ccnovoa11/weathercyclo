@@ -9,6 +9,8 @@ import JugarContainer from "../ui/components/Jugar";
 import PartidaContainer from "../ui/components/Partida";
 import AgregarPreguntaContainer from "../ui/components/AgregarPregunta";
 import PreguntasContainer from "../ui/components/Preguntas";
+import CuriosidadesContainer from "../ui/components/ListaCuriosidades";
+
 FlowRouter.route('/', {
   name: 'main',
   action() {
@@ -48,6 +50,13 @@ FlowRouter.route('/AgregarPregunta', {
   name: 'AgregarPregunta',
   action() {
     mount(AgregarPreguntaContainer);
+  },
+});
+
+FlowRouter.route('/Curiosidades', {
+  name: 'Curiosidades',
+  action() {
+    mount(CuriosidadesContainer);
   },
 });
 
