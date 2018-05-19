@@ -24,3 +24,4 @@ accounts-ui
 accounts-password
 dburles:google-maps
 kadira:flow-router
+session
