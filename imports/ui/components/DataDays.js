@@ -21,7 +21,7 @@ class DataDays extends Component {
 
 			return (
 				<div className="row">
-					<div className="time col s6">
+					<div className="infoD time col s6">
 						<h4> {this.props.dataDays[1].applicable_date} </h4>						
 						<div className="row">
 							<div className="col s6">
@@ -37,7 +37,7 @@ class DataDays extends Component {
 						<p> Max: {this.props.dataDays[1].max_temp.toFixed(2)} °C</p>
 						<p> Min: {this.props.dataDays[1].min_temp.toFixed(2)} °C</p>
 					</div>
-					<div className="time col s6">
+					<div className="infoD time col s6">
 						<h4> {this.props.dataDays[2].applicable_date} </h4>						
 						<div className="row">
 							<div className="col s6">
@@ -65,7 +65,7 @@ class DataDays extends Component {
 
 			return (
 				<div className="row">
-					<div className="time col s6">
+					<div className="infoD time col s6">
 						<h4> {this.props.dataDays[3].applicable_date} </h4>
 						<div className="row">
 							<div className="col s6">
@@ -81,7 +81,7 @@ class DataDays extends Component {
 						<p> Max: {this.props.dataDays[3].max_temp.toFixed(2)} °C</p>
 						<p> Min: {this.props.dataDays[3].min_temp.toFixed(2)} °C</p>
 					</div>
-					<div className="time col s6">
+					<div className="infoD time col s6">
 						<h4> {this.props.dataDays[4].applicable_date} </h4>						
 						<div className="row">
 							<div className="col s6">

@@ -38,6 +38,18 @@ div.row{
     margin-bottom: 5px !important;
 }
 
+div.infoD {
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+h4 {
+    color: #337ab7;
+}
+
+div.curiosidad {
+    height: 40%;
+}
 
 
 input#fotoNueva{

@@ -7,7 +7,7 @@ export default class Curiosidad extends Component {
 	render() {
 		return (
 			<div>
-				<div className ="col s6">	            	
+				<div className ="curiosidad col s6">	            	
 	            	<p> 
 	            		{this.props.curiosidades.text}
 	            	</p>
