@@ -26,7 +26,7 @@ class Form extends Component {
 			<div className = "formulario">
 				<div>
 					<input className="form" 
-						placeholder = "Search a place"
+						placeholder = "Buscar información sobre..."
                 		onChange={(evt)=>this.getPlace(evt)}
                 		required/>
                 	<br/>

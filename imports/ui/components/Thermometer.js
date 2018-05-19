@@ -252,7 +252,7 @@ renderTitle(){
 		var imagen = "https://www.metaweather.com/static/img/weather/png/64/"+this.props.abbr+".png";
 		return(
 			<div className= "time">
-				<h2>Current Temperature</h2>
+				<h2>Tiempo actual</h2>
 				<div className="row">
 
 					<div className="col s10">

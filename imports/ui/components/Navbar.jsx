@@ -31,16 +31,13 @@ class Navbar extends Component {
             WeatherCyclo
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            {Meteor.user() ? (
+            
               <li>
-                <a>{this.name()}</a>
+                <a onClick={() => FlowRouter.go('/Registro')}>Registro</a>
               </li>
-            ) : (
-              ""
-            )}
             {Meteor.user() ? (
               <li>
-                <a onClick={() => FlowRouter.go('/Inicio')}>Inicio</a>
+                <a onClick={() => FlowRouter.go('/Jugar')}>Jugar</a>
               </li>
             ) : (
               ""
@@ -66,6 +63,7 @@ class Navbar extends Component {
             ) : (
               ""
             )}
+              
           </ul>
         </div>
       </nav>

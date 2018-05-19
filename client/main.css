@@ -80,6 +80,10 @@ h6{
     background-color: #4267b2; 
 }
 
+.lista{
+    text-align: left;
+}
+
 .time{
     text-align: center;
 }

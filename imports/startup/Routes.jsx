@@ -5,7 +5,7 @@ import { mount } from 'react-mounter';
 import AppContainer from "../ui/App";
 import LoginContainer from "../ui/components/Login";
 import RegistroContainer from "../ui/components/Register";
-import InicioContainer from "../ui/components/Inicio";
+import JugarContainer from "../ui/components/Jugar";
 import PartidaContainer from "../ui/components/Partida";
 import AgregarPreguntaContainer from "../ui/components/AgregarPregunta";
 import PreguntasContainer from "../ui/components/Preguntas";
@@ -30,10 +30,10 @@ FlowRouter.route('/Registro', {
   },
 });
 
-FlowRouter.route('/Inicio', {
-  name: 'Inicio',
+FlowRouter.route('/Jugar', {
+  name: 'Jugar',
   action() {
-    mount(InicioContainer);
+    mount(JugarContainer);
   },
 });
 

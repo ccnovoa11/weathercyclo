@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
 import Viejas from "./Viejas";
-class Inicio extends Component {
+class Jugar extends Component {
   constructor() {
     super();
   }
@@ -14,36 +14,36 @@ class Inicio extends Component {
       <div>
         <Navbar />
         <div className="row">
-          <div className="col s8">
+          <div className="time">
             <div className="container">
-              <h3>Explicacion</h3>
-              <p>
-                Debes iniciar una partida, una vez iniciada tienes que esperar
-                que otra persona se conecte y así poder comenzar a jugar. el
-                juego consiste en 5 preguntas de opción multiple despues de cada
-                pregunta podras ver si tu contricante ha acertado su pregunta o
-                no.
-              </p>
+              <h3>Explicación:</h3>
+              <ol className ="lista">
+                <li>Debes iniciar una partida, una vez iniciada tienes que esperar
+                que otra persona se conecte y así poder comenzar a jugar.</li>
+                <li>El juego consiste en 5 preguntas de opción múltiple con 4 posibles respuestas.</li>
+                <li>El resultado se conocerá una vez que ambos jugadores acaben de responder las 5 preguntas.</li>
+                <li>Al finalizar, podrás observar tus resultados en tu historial de partidas.</li>                
+              </ol>
               <br />
             </div>
           </div>
 
-          <div className="col s4">
-            <h3>Crea una partida</h3>
+          <div className="time">
+            <h3>Te sientes preparado, entonces...</h3>
             <button
               className="btn waves-effect waves-light"
               type="submit"
               name="action"
               onClick={() => FlowRouter.go("/Partida")}
             >
-              Iniciar
+              A jugar!
             </button>
           </div>
         </div>
         <div className="row">
           <div className="col s8">
             <div className="container">
-              <h3>Mira tus partidas jugadas</h3>
+              <h3>Partidas jugadas:</h3>
             </div>
           </div>
         </div>
@@ -59,4 +59,4 @@ class Inicio extends Component {
   }
 }
 
-export default Inicio;
+export default Jugar;

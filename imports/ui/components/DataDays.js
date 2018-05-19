@@ -106,9 +106,9 @@ class DataDays extends Component {
 		if(this.props.lat !== null && this.props.lon !==null){
 			return(
 				<div className="time">
-					<h2>Location:</h2>
-					<p>Latitude: {this.props.lat}</p>
-					<p>Longitude: {this.props.lon}</p>
+					<h2>Ubicación:</h2>
+					<p>Latitud: {this.props.lat}</p>
+					<p>Longitud: {this.props.lon}</p>
 				</div>
 				);
 		}

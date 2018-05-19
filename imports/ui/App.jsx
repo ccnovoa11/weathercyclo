@@ -99,8 +99,8 @@ obtainCityData() {
       <div>
         <Navbar />
         <div className="container">
-          <h1>Welcome to weathercyclo</h1>
-          <h3>Here in weathercyclo you can search for information about the weather of different places.</h3>
+          <h1>Bienvenido a weathercyclo</h1>
+          <h5>En weathercyclo puedes consultar los datos climáticos de un lugar, poner a prueba tus conocimientos y aprender cosas nuevas!</h5>
           <div className = "time">
             <Form place={this.place.bind(this)}></Form>
           </div>
