@@ -1,0 +1,2 @@
+Codereview Camilo Carrillo
+- Los llamados a la base de datos serian mas seguros utilizando Metodos ('Meteor.call(...)')
