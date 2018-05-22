@@ -1,0 +1,4 @@
+Camilo A Carrillo N - Aplica para todos los archivos en /api/
+- Los test son una buena herramienta para el desarrollo del proyecto, hubiera sido bueno crear una para cada BD.
+- Definir un RateLimit es importante para evitar posibles ataques a la BD.
+- Realizar los llamados a las BD por medio de Methods es un mecanismo mas seguro para realizar acciones sobre las mismas.
